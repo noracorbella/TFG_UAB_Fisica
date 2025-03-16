@@ -1,0 +1,56 @@
+<CompuCell3D Revision="2" Version="4.6.0">
+   
+   <Metadata>
+      
+      <!-- Basic properties simulation -->
+      <NumberOfProcessors>1</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+      <!-- <NonParallelModule Name="Potts"/> -->
+   </Metadata>
+   
+   <Potts>
+      
+      <!-- Basic properties of CPM (GGH) algorithm -->
+      <Dimensions x="256" y="256" z="1"/>
+      <Steps>100000</Steps>
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>1</NeighborOrder>
+   </Potts>
+   
+   <Plugin Name="CellType">
+        <CellType TypeId="0" TypeName="Medium"/>
+        <CellType TypeId="1" TypeName="Cell1"/>
+        <CellType TypeId="2" TypeName="Cell2"/>
+   </Plugin>
+   
+   <Plugin Name="CenterOfMass">
+      <!-- Module tracking center of mass of each cell -->
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+      <!-- Module tracking neighboring cells of each cell -->
+   </Plugin>
+   
+    <Plugin Name="Volume"> </Plugin>
+    <Plugin Name="Contact">
+        <!--  Specification of adhesion energies  -->
+        <Energy Type1="Medium" Type2="Medium">10.0</Energy>
+        <Energy Type1="Medium" Type2="Cell1">10.0</Energy>
+        <Energy Type1="Medium" Type2="Cell2">10.0</Energy>
+        <Energy Type1="Cell1" Type2="Cell1">10.0</Energy>
+        <Energy Type1="Cell1" Type2="Cell2">10.0</Energy>
+        <Energy Type1="Cell2" Type2="Cell2">10.0</Energy>
+        <NeighborOrder>4</NeighborOrder>
+    </Plugin>
+    
+    <Steppable Type="UniformInitializer">
+    <!--  Initial layout of cells in the form of rectangular slab  -->
+    <Region>
+        <BoxMin x="122" y="122" z="0"/>
+        <BoxMax x="124" y="124" z="1"/>
+        <Gap>0</Gap>
+        <Width>7</Width>
+        <Types>Cell1,Cell2</Types>
+    </Region>
+  </Steppable>
+</CompuCell3D>
