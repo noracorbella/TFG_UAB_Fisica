@@ -1,0 +1,47 @@
+<CompuCell3D Revision="2" Version="4.6.0">
+   
+   <Metadata>
+      <NumberOfProcessors>1</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+      <!-- <NonParallelModule Name="Potts"/> -->
+   </Metadata>
+   
+   <Potts>
+      
+      <!-- Basic properties of CPM (GGH) algorithm -->
+      <Dimensions x="200" y="200" z="1"/>
+      <Steps>10000</Steps>
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>3</NeighborOrder>
+      <Boundary_x>Periodic</Boundary_x>
+      <Boundary_y>Periodic</Boundary_y>
+   </Potts>
+   
+   <Plugin Name="CellType">
+      
+      <!-- Listing all cell types in the simulation -->
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="ST"/>
+      <CellType TypeId="2" TypeName="TD"/>
+   </Plugin>
+   
+   <Plugin Name="Volume"/>
+   
+   <Plugin Name="Surface">
+      <TargetSurface>20</TargetSurface>
+      <LambdaSurface>1.5</LambdaSurface>
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      <!-- Specification of adhesion energies -->
+      <Energy Type1="Medium" Type2="Medium">10.0</Energy>
+      <Energy Type1="Medium" Type2="ST">10.0</Energy>
+      <Energy Type1="Medium" Type2="TD">10.0</Energy>
+      <Energy Type1="ST" Type2="ST">10.0</Energy>
+      <Energy Type1="ST" Type2="TD">10.0</Energy>
+      <Energy Type1="TD" Type2="TD">10.0</Energy>
+      <NeighborOrder>4</NeighborOrder>
+   </Plugin>
+   
+   
+</CompuCell3D>
