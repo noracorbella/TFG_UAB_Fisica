@@ -1,5 +1,0 @@
-<Simulation version="4.6.0">
-   <XMLScript Type="XMLScript">Simulation/CellSorting.xml</XMLScript>
-   <PythonScript Type="PythonScript">Simulation/CellSorting.py</PythonScript>
-   <Resource Type="Python">Simulation/CellSortingSteppables.py</Resource>
-</Simulation>
