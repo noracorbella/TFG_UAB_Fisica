@@ -1,0 +1,56 @@
+<CompuCell3D Revision="2" Version="4.6.0">
+   
+   <Metadata>
+      <NumberOfProcessors>1</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+      <!-- <NonParallelModule Name="Potts"/> -->
+   </Metadata>
+   
+   <Potts>
+      <Dimensions x="100" y="100" z="1"/>
+      <Steps>100000</Steps>
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>3</NeighborOrder>
+      <Boundary_x>Periodic</Boundary_x>
+      <Boundary_y>Periodic</Boundary_y>
+   </Potts>
+   
+   <Plugin Name="CellType">    
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="Cell"/>
+   </Plugin>
+   
+   <Plugin Name="Volume"/>
+   <Plugin Name="Surface"/>
+
+
+   
+   <Plugin Name="CenterOfMass">
+      
+      <!-- Module tracking center of mass of each cell -->
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+      
+      <!-- Module tracking neighboring cells of each cell -->
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      <!-- Specification of adhesion energies -->
+      <Energy Type1="Medium" Type2="Medium">10.0</Energy>
+      <Energy Type1="Medium" Type2="Cell">10.0</Energy>
+      <Energy Type1="Cell" Type2="Cell">10.0</Energy>
+      <NeighborOrder>4</NeighborOrder>
+   </Plugin>
+   
+   <Steppable Type="BlobInitializer">
+      
+      <Region>
+         <Center x="50" y="50" z="0"/>
+         <Radius>5</Radius>
+         <Gap>0</Gap>
+         <Width>5</Width>
+         <Types>Cell</Types>
+      </Region>
+   </Steppable>
+</CompuCell3D>
