@@ -1,0 +1,51 @@
+<CompuCell3D Revision="2" Version="4.6.0">
+   
+   <Metadata>
+      <NumberOfProcessors>1</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+   </Metadata>
+   
+   <Potts>
+      <Dimensions x="100" y="100" z="1"/>
+      <Steps>10000</Steps>
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>2</NeighborOrder>
+   </Potts>
+   
+   <Plugin Name="CellType">
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="Condensing"/>
+      <CellType TypeId="2" TypeName="NonCondensing"/>
+   </Plugin>
+   
+   <Plugin Name="Volume">
+      <VolumeEnergyParameters CellType="Condensing" LambdaVolume="2.0" TargetVolume="50"/>
+      <VolumeEnergyParameters CellType="NonCondensing" LambdaVolume="2.0" TargetVolume="50"/>
+   </Plugin>
+   
+   <Plugin Name="CenterOfMass">
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      <Energy Type1="Medium" Type2="Medium">0.0</Energy>
+      <Energy Type1="Medium" Type2="Condensing">16.0</Energy>
+      <Energy Type1="Medium" Type2="NonCondensing">16.0</Energy>
+      <Energy Type1="Condensing" Type2="Condensing">2.0</Energy>
+      <Energy Type1="Condensing" Type2="NonCondensing">11.0</Energy>
+      <Energy Type1="NonCondensing" Type2="NonCondensing">16.0</Energy>
+      <NeighborOrder>4</NeighborOrder>
+   </Plugin>
+   
+   <Steppable Type="BlobInitializer">
+      <Region>
+         <Center x="50" y="50" z="0"/>
+         <Radius>20</Radius>
+         <Gap>0</Gap>
+         <Width>5</Width>
+         <Types>Condensing,NonCondensing</Types>
+      </Region>
+   </Steppable>
+</CompuCell3D>
