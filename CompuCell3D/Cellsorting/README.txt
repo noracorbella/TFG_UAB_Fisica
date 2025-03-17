@@ -3,7 +3,7 @@ Different CellSorting simulation.
 Playing with different J value parameters, different Temperatures, etc.
 Also trying to track relevant magnitudes, or adding perturbations  to see the evolueiton of the system.
 
-In Energy directory, we tracked the energy of a cellsorting simulation along MCS. 
+In CellSorting_Energy directory, we tracked the energy of a cellsorting simulation along MCS. 
 The noticeable initial increase in energy appears counterintuitive for a Monte Carlo simulation, where energy should decrease towards a minimum.
 This initial rise is attributed to the initially unrealistic, square shapes of the cells. 
 During the first few Monte Carlo steps (MCS), the volume and surface constraint terms in the Hamiltonian drive the cells to adopt more rounded and realistic shapes.
