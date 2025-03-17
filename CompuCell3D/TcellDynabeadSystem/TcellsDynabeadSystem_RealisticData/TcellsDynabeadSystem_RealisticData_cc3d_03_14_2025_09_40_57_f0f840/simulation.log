@@ -1,0 +1,304 @@
+INFO: Step 0 
+INFO: Energy 0 
+INFO: Cells 0
+INFO: Step 0 Flips 1313/1000000 Energy -1.99304e+07 Cells 24 Inventory=24
+Metropolis Fast
+total number of pixel copy attempts=1000000
+
+INFO: Step 10 Flips 251/1000000 Energy -1.1404e+06 Cells 24 Inventory=24
+
+
+INFO: Step 20 Flips 128/1000000 Energy -16105.3 Cells 24 Inventory=24
+
+
+INFO: Step 30 Flips 107/1000000 Energy -3999.04 Cells 24 Inventory=24
+
+
+INFO: Step 40 Flips 100/1000000 Energy -544.391 Cells 24 Inventory=24
+
+
+INFO: Step 50 Flips 117/1000000 Energy -379.711 Cells 24 Inventory=24
+
+
+INFO: Step 60 Flips 143/1000000 Energy -877.012 Cells 24 Inventory=24
+
+
+INFO: Step 70 Flips 108/1000000 Energy -495.107 Cells 24 Inventory=24
+
+
+INFO: Step 80 Flips 127/1000000 Energy -6407.59 Cells 24 Inventory=24
+
+
+INFO: Step 90 Flips 113/1000000 Energy -500.407 Cells 24 Inventory=24
+
+
+INFO: Step 100 Flips 103/1000000 Energy -76.4716 Cells 24 Inventory=24
+
+
+INFO: Step 110 Flips 100/1000000 Energy 49.5361 Cells 24 Inventory=24
+
+
+INFO: Step 120 Flips 100/1000000 Energy -17.8707 Cells 24 Inventory=24
+
+
+INFO: Step 130 Flips 109/1000000 Energy -103.327 Cells 24 Inventory=24
+
+
+INFO: Step 140 Flips 96/1000000 Energy -41.849 Cells 24 Inventory=24
+
+
+INFO: Step 150 Flips 81/1000000 Energy -142.335 Cells 24 Inventory=24
+
+
+INFO: Step 160 Flips 99/1000000 Energy -50.1681 Cells 24 Inventory=24
+
+
+INFO: Step 170 Flips 82/1000000 Energy -6.38387 Cells 24 Inventory=24
+
+
+INFO: Step 180 Flips 98/1000000 Energy 62.1187 Cells 24 Inventory=24
+
+
+INFO: Step 190 Flips 122/1000000 Energy -86.9354 Cells 24 Inventory=24
+
+
+INFO: Step 200 Flips 115/1000000 Energy 40.1681 Cells 24 Inventory=24
+
+
+INFO: Step 210 Flips 113/1000000 Energy 12.0081 Cells 24 Inventory=24
+
+
+INFO: Step 220 Flips 98/1000000 Energy -37.04 Cells 24 Inventory=24
+
+
+INFO: Step 230 Flips 99/1000000 Energy 52.0081 Cells 24 Inventory=24
+
+
+INFO: Step 240 Flips 117/1000000 Energy 68.9529 Cells 24 Inventory=24
+
+
+INFO: Step 250 Flips 84/1000000 Energy 49.8787 Cells 24 Inventory=24
+
+
+INFO: Step 260 Flips 90/1000000 Energy -22.0477 Cells 24 Inventory=24
+
+
+INFO: Step 270 Flips 90/1000000 Energy 28.2949 Cells 24 Inventory=24
+
+
+INFO: Step 280 Flips 86/1000000 Energy -54.7361 Cells 24 Inventory=24
+
+
+INFO: Step 290 Flips 84/1000000 Energy 125.943 Cells 24 Inventory=24
+
+
+INFO: Step 300 Flips 96/1000000 Energy -52.8426 Cells 24 Inventory=24
+
+
+INFO: Step 310 Flips 105/1000000 Energy -18.4558 Cells 24 Inventory=24
+
+
+INFO: Step 320 Flips 107/1000000 Energy 12.299 Cells 24 Inventory=24
+
+
+INFO: Step 330 Flips 105/1000000 Energy 57.1507 Cells 24 Inventory=24
+
+
+INFO: Step 340 Flips 112/1000000 Energy -13.9132 Cells 24 Inventory=24
+
+
+INFO: Step 350 Flips 102/1000000 Energy -28.4141 Cells 24 Inventory=24
+
+
+INFO: Step 360 Flips 71/1000000 Energy -14.1042 Cells 24 Inventory=24
+
+
+INFO: Step 370 Flips 102/1000000 Energy 42.8387 Cells 24 Inventory=24
+
+
+INFO: Step 380 Flips 99/1000000 Energy -86.8809 Cells 24 Inventory=24
+
+
+INFO: Step 390 Flips 105/1000000 Energy 40.2855 Cells 24 Inventory=24
+
+
+INFO: Step 400 Flips 94/1000000 Energy -60.4639 Cells 24 Inventory=24
+
+
+INFO: Step 410 Flips 106/1000000 Energy -3.21838 Cells 24 Inventory=24
+
+
+INFO: Step 420 Flips 89/1000000 Energy -46.8081 Cells 24 Inventory=24
+
+
+INFO: Step 430 Flips 94/1000000 Energy -33.9587 Cells 24 Inventory=24
+
+
+INFO: Step 440 Flips 103/1000000 Energy -11.1691 Cells 24 Inventory=24
+
+
+INFO: Step 450 Flips 94/1000000 Energy -218.691 Cells 24 Inventory=24
+
+
+INFO: Step 460 Flips 98/1000000 Energy 48.3103 Cells 24 Inventory=24
+
+
+INFO: Step 470 Flips 100/1000000 Energy 0.134878 Cells 24 Inventory=24
+
+
+INFO: Step 480 Flips 116/1000000 Energy 18.0387 Cells 24 Inventory=24
+
+
+INFO: Step 490 Flips 77/1000000 Energy 34.1907 Cells 24 Inventory=24
+
+
+INFO: Step 500 Flips 110/1000000 Energy -2.43227 Cells 24 Inventory=24
+
+
+INFO: Step 510 Flips 93/1000000 Energy -38.9754 Cells 24 Inventory=24
+
+
+INFO: Step 520 Flips 97/1000000 Energy 95.3349 Cells 24 Inventory=24
+
+
+INFO: Step 530 Flips 97/1000000 Energy 19.6552 Cells 24 Inventory=24
+
+
+INFO: Step 540 Flips 91/1000000 Energy -19.0481 Cells 24 Inventory=24
+
+
+INFO: Step 550 Flips 111/1000000 Energy -14.7758 Cells 24 Inventory=24
+
+
+INFO: Step 560 Flips 104/1000000 Energy 24.0161 Cells 24 Inventory=24
+
+
+INFO: Step 570 Flips 106/1000000 Energy -14.5439 Cells 24 Inventory=24
+
+
+INFO: Step 580 Flips 90/1000000 Energy -0.463867 Cells 24 Inventory=24
+
+
+INFO: Step 590 Flips 86/1000000 Energy -84.48 Cells 24 Inventory=24
+
+
+INFO: Step 600 Flips 97/1000000 Energy 105.368 Cells 24 Inventory=24
+
+
+INFO: Step 610 Flips 95/1000000 Energy -72.0081 Cells 24 Inventory=24
+
+
+INFO: Step 620 Flips 75/1000000 Energy -33.5919 Cells 24 Inventory=24
+
+
+INFO: Step 630 Flips 87/1000000 Energy -71.5442 Cells 24 Inventory=24
+
+
+INFO: Step 640 Flips 97/1000000 Energy -39.2558 Cells 24 Inventory=24
+
+
+INFO: Step 650 Flips 93/1000000 Energy -55.9597 Cells 24 Inventory=24
+
+
+INFO: Step 660 Flips 74/1000000 Energy 72.4961 Cells 24 Inventory=24
+
+
+INFO: Step 670 Flips 82/1000000 Energy -95.4077 Cells 24 Inventory=24
+
+
+INFO: Step 680 Flips 111/1000000 Energy 4.96807 Cells 24 Inventory=24
+
+
+INFO: Step 690 Flips 84/1000000 Energy 35.6639 Cells 24 Inventory=24
+
+
+INFO: Step 700 Flips 99/1000000 Energy 161.032 Cells 24 Inventory=24
+
+
+INFO: Step 710 Flips 103/1000000 Energy -128.735 Cells 24 Inventory=24
+
+
+INFO: Step 720 Flips 85/1000000 Energy -114.712 Cells 24 Inventory=24
+
+
+INFO: Step 730 Flips 96/1000000 Energy 13.6161 Cells 24 Inventory=24
+
+
+INFO: Step 740 Flips 91/1000000 Energy 196.857 Cells 24 Inventory=24
+
+
+INFO: Step 750 Flips 70/1000000 Energy -35.7987 Cells 24 Inventory=24
+
+
+INFO: Step 760 Flips 97/1000000 Energy 43.8481 Cells 24 Inventory=24
+
+
+INFO: Step 770 Flips 121/1000000 Energy -109.304 Cells 24 Inventory=24
+
+
+INFO: Step 780 Flips 94/1000000 Energy -91.4451 Cells 24 Inventory=24
+
+
+INFO: Step 790 Flips 91/1000000 Energy 28.3919 Cells 24 Inventory=24
+
+
+INFO: Step 800 Flips 80/1000000 Energy -1.37613 Cells 24 Inventory=24
+
+
+INFO: Step 810 Flips 83/1000000 Energy 36.5761 Cells 24 Inventory=24
+
+
+INFO: Step 820 Flips 91/1000000 Energy -6.80807 Cells 24 Inventory=24
+
+
+INFO: Step 830 Flips 105/1000000 Energy 94.3119 Cells 24 Inventory=24
+
+
+INFO: Step 840 Flips 80/1000000 Energy 27.6229 Cells 24 Inventory=24
+
+
+INFO: Step 850 Flips 91/1000000 Energy 6.80807 Cells 24 Inventory=24
+
+
+INFO: Step 860 Flips 83/1000000 Energy -68.2971 Cells 24 Inventory=24
+
+
+INFO: Step 870 Flips 92/1000000 Energy -99.8171 Cells 24 Inventory=24
+
+
+INFO: Step 880 Flips 78/1000000 Energy 23.4239 Cells 24 Inventory=24
+
+
+INFO: Step 890 Flips 92/1000000 Energy 93.9413 Cells 24 Inventory=24
+
+
+INFO: Step 900 Flips 105/1000000 Energy 50.7532 Cells 24 Inventory=24
+
+
+INFO: Step 910 Flips 84/1000000 Energy 70.8639 Cells 24 Inventory=24
+
+
+INFO: Step 920 Flips 73/1000000 Energy -23.1919 Cells 24 Inventory=24
+
+
+INFO: Step 930 Flips 86/1000000 Energy -3994.42 Cells 24 Inventory=24
+
+
+INFO: Step 940 Flips 99/1000000 Energy -137.208 Cells 24 Inventory=24
+
+
+INFO: Step 950 Flips 95/1000000 Energy 93.5919 Cells 24 Inventory=24
+
+
+INFO: Step 960 Flips 99/1000000 Energy 3.12807 Cells 24 Inventory=24
+
+
+INFO: Step 970 Flips 88/1000000 Energy -70.8639 Cells 24 Inventory=24
+
+
+INFO: Step 980 Flips 86/1000000 Energy -45.1426 Cells 24 Inventory=24
+
+
+INFO: Step 990 Flips 91/1000000 Energy 34.6391 Cells 24 Inventory=24
+
+
