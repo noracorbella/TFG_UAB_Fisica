@@ -1,0 +1,11 @@
+<CompuCell3DLatticeData Version="1.0">
+   <Dimensions x="200" y="200" z="1"/>
+   <Lattice Type="Square"/>
+   <Output CoreFileName="Step" Directory="C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\BaseLineSimulation\Simulation\BaseLineSimulation_cc3d_03_04_2025_19_48_14_bb3dc0\LatticeData" Frequency="1" NumberOfSteps="100000"/>
+   <CellType TypeId="0" TypeName="Medium"/>
+   <CellType TypeId="1" TypeName="TCell"/>
+   <CellType TypeId="2" TypeName="Dynabead"/>
+   <Fields>
+      <Field Name="Cell_Field" Type="CellField"/>
+   </Fields>
+</CompuCell3DLatticeData>
