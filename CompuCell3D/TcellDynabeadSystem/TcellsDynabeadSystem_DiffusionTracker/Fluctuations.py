@@ -13,18 +13,21 @@ import random
 #from matplotlib.ticker import MaxNLocator
 #from scipy.optimize import curve_fit
 
-positions_file = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/cell_positions.txt"
-TCell_fluctuations_analysis = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/TCell_fluctuations_analysis.png"
+#Flile with stored positions
+positions_file = r"cell_positions.txt"
+
+#Output plot
+TCell_fluctuations_analysis = r"TCell_fluctuations_analysis.png"
 
 TCells = {}
 Dynabeads = {}
 
 with open(positions_file, 'r') as f:
-    next(f)
+    next(f) #skip header
     for l in f:
         mcs, cell_id, cell_type, x, y = map(float, l.split())
         
-        if cell_type == 1:
+        if cell_type == 1: #TCell
 
             if cell_id not in TCells:
                 TCells[cell_id] = ([], [], [])
@@ -33,20 +36,17 @@ with open(positions_file, 'r') as f:
             TCells[cell_id][2].append(y)
 
                 
-        elif cell_type == 2:
+        elif cell_type == 2: #Dynabead
             if cell_id not in Dynabeads:
                 Dynabeads[cell_id] = ([], [], [])
             Dynabeads[cell_id][0].append(mcs)
             Dynabeads[cell_id][1].append(x)
             Dynabeads[cell_id][2].append(y)
 
-DB_x_fluct = []
-DB_y_fluct = []
-DB_tot_fluct = []
-TC_x_fluct = []
-TC_y_fluct = []
-TC_tot_fluct = []
+DB_x_fluct, DB_y_fluct, DB_tot_fluct = [], [], []
+TC_x_fluct, TC_y_fluct, TC_tot_fluct = [], [], []
 
+#Calculate and store fluctuations
 for cell_id, (mcs, x_coords, y_coords) in Dynabeads.items():
     for i in range(1, len(x_coords)):
         x_fluct = x_coords[i] - x_coords[i-1]
@@ -67,7 +67,7 @@ for cell_id, (mcs, x_coords, y_coords) in TCells.items():
 
 
 # ---------------------------------------------------------------------------
-# Function Instantaneous Temperature distribution at equilibrium 
+# Function Instantaneous x distribution at equilibrium 
 # (Gaussian)
 
 def MB(x,x_avg,sigma):
@@ -83,10 +83,6 @@ print('----------------------------------')
 
 #Ask for number of degrees of freedom
 #Nu = int(input("\n Number of Degrees of freedom:\n>"))
-
-
-
-
 
 #Compute Average position
 avg_fluct = np.average(TC_x_fluct) 
@@ -121,10 +117,11 @@ plt.show()
 
 
 '''
+HISTOGRAM GENERATOR WITHOUT THEORETICAL COMPARISON
 
-positions_file = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/cell_positions.txt"
-TCell_fluctuations_hist = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/Tcell_fluctuations_hist.png"
-Dynabead_fluctuations_hist = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/Dynabead_fluctuations_hist.png"
+positions_file = r"cell_positions.txt"
+TCell_fluctuations_hist = r"Tcell_fluctuations_hist.png"
+Dynabead_fluctuations_hist = r"Dynabead_fluctuations_hist.png"
 
 TCells = {}
 Dynabeads = {}
@@ -236,6 +233,8 @@ plt.show()
     
             
 '''
+POSITION VS MCS PLOT FOR DYNABEAD AND TCELL
+
 random_tcell = random.choice(list(TCells.keys()))
 random_dynabead = random.choice(list(Dynabeads.keys()))
 
