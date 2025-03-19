@@ -9,7 +9,7 @@ Created on Wed Mar 19 15:23:26 2025
 import numpy as np
 
 
-positions_file = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker/cell_positions.txt"
+positions_file = r"cell_positions.txt"
 
 
 delta_t = 100 #we will calculate D every 100MCS
