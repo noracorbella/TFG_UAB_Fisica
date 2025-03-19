@@ -43,7 +43,7 @@ with open(positions_file,'r') as f:
             Dynabeads[cell_id]['y'].append(y)
 
 
-
+print(mcs)
 
 
 def calculate_diffusion(Dictionary):
@@ -76,33 +76,4 @@ def calculate_diffusion(Dictionary):
         return 0
 
 
-
 print("D =", calculate_diffusion(Dynabeads))
-    
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
