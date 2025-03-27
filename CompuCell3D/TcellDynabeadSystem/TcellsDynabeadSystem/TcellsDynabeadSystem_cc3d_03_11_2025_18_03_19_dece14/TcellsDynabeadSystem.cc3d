@@ -1,5 +1,0 @@
-<Simulation version="4.6.0">
-   <XMLScript Type="XMLScript">Simulation/TcellsDynabeadSystem.xml</XMLScript>
-   <PythonScript Type="PythonScript">Simulation/TcellsDynabeadSystem.py</PythonScript>
-   <Resource Type="Python">Simulation/TcellsDynabeadSystemSteppables.py</Resource>
-</Simulation>
