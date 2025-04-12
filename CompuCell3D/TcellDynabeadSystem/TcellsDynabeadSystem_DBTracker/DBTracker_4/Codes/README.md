@@ -3,4 +3,3 @@ Codes for data treatment of the simulation.
 * **LinearRegionFit.py** : Makes a linear fit of the .dat file obtained from DiffusionCalculator_MDAnalysis.py .
 * **Plotter_trajectories_from_xtc.py** : Plots the trajectory of the dynabead from the .xtc file.
 
-* **TcellsDynabeadSystem_DBTracker.cc3d** : CC3D simulation code.
