@@ -1,60 +1,26 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Sat Mar 22 11:17:25 2025
-
-@author: nora
+The .xtc file is required to have the coordinates in the unwrapped convention.
+This can be done with GROMACS software, with the following command line:
+gmx trjconv -f DB_traj.xtc -s DB_frame0.pdb -pbc nojump -o DB_traj_unwrapped.xtc
+where DB_traj.xtc is the wrapped trajectory file, DB_frame0.pdb is the topology file and DB_traj_unwrapped.xtc is the converted trajectory file with the unwrapped convention.
 """
-
 
 import MDAnalysis as mda
 from MDAnalysis.analysis import msd
 import numpy as np
 
-trajectory_file = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTracker/DBTracker_4/DB4_traj_unwrapped.xtc"
-
-
-topology_pdb = r"mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTracker/DBTracker_4/DB4_frame0.pdb"
-
-
-output_file_DB = r"mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTracker/DBTracker_4/MDAnalysis_MSD_DB4.dat"
-
-output_file_TC = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/TcellsDynabeadSystem_DiffusionTracker_2/TcellsDynabeadSystem_DiffusionTracker_def/MDAnalysis_MSD_TC.dat"
-
-
+trajectory_file = r"DB4_traj_unwrapped.xtc"
+topology_pdb = r"DB4_frame0.pdb"
+output_file_DB = r"MDAnalysis_MSD_DB4.dat"
 
 u = mda.Universe(topology_pdb, trajectory_file)
 
+DBs = u.select_atoms('all')
 
-
-DBs = u.select_atoms('name H')
-TCs = u.select_atoms('name O')
-
-def compute_and_save_msd(atomgroup, output_file, label):
-    msd_calc = msd.EinsteinMSD(atomgroup, msd_type='xy', fft=True, apply_pbc=True)
-    msd_calc.run()
-
-    nframes = msd_calc.n_frames
-    timestep = 100  # One frame every 100 MCS
-    lagtimes = np.arange(nframes) * timestep
-    msd_values = msd_calc.results.timeseries
-
-    with open(output_file, 'w') as f:
-        f.write(f"# MSD of {label}\n")
-        f.write("LagTime(MCS)\tMSD\n")
-        for t, msd_val in zip(lagtimes, msd_values):
-            f.write(f"{t}\t{msd_val}\n")
-
-# Run for each type
-compute_and_save_msd(DBs, output_file_DB, label="Dynabeads (H)")
-compute_and_save_msd(TCs, output_file_TC, label="T cells (O)")
-
-'''
+print(f"Number of DB: {len(DBs)}") #it should be 1
 
 msd_calc = msd.EinsteinMSD(DBs, msd_type='xy', fft = True, apply_pbc=True)
 msd_calc.run()
-
-
 
 nframes = msd_calc.n_frames
 timestep = 100 
@@ -63,9 +29,6 @@ print(lagtimes)
 
 MSDs = msd_calc.results.timeseries
 
-
-with open(output_file, 'w') as f1:
+with open(output_file_DB, 'w') as f1:
     for t, msd_value in zip(lagtimes, MSDs):
         f1.write(f"{t}\t{msd_value}\n")
-
-'''
