@@ -87,10 +87,10 @@ class TrajectoryTrackerSteppable(SteppableBasePy):
                 atom.type = "X"
                 atom.residue.resname = "UNK"
 
-        with PDBWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_NoUptake\DBTC_InitialFrame.pdb") as pdb_writer:
+        with PDBWriter(r"DBTC_InitialFrame.pdb") as pdb_writer:
             pdb_writer.write(self.universe.atoms)
 
-        self.trajectory_writer = XTCWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_NoUptake\DBTC_trajectories.xtc", self.num_atoms)
+        self.trajectory_writer = XTCWriter(r"DBTC_trajectories.xtc", self.num_atoms)
 
     def step(self, mcs):
         if mcs % 100 == 0:
@@ -123,7 +123,7 @@ class TCellMitosisSteppable(MitosisSteppableBase):
         self.Tcell_minsize = 17.8 #minimum size for division
 
     def start(self):
-        self.TC_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_NoUptake\TC_count.txt", "w")
+        self.TC_count_file = open(r"TC_count.txt", "w")
         self.TC_count_file.write("MCS \t CellCount \n")
         self.TC_count_file.flush() 
 
