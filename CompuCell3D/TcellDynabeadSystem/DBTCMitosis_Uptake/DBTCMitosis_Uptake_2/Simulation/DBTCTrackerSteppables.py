@@ -6,6 +6,7 @@ from MDAnalysis import Universe
 from MDAnalysis.coordinates.PDB import PDBWriter
 from MDAnalysis.coordinates.XTC import XTCWriter
 
+
 class CellInitialiser(SteppableBasePy):
     def __init__(self, frequency=1):
         SteppableBasePy.__init__(self,frequency)
@@ -86,10 +87,10 @@ class TrajectoryTrackerSteppable(SteppableBasePy):
                 atom.type = "C"
                 atom.residue.resname = "ATC"
 
-        with PDBWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\DBTC_InitialFrame.pdb") as pdb_writer:
+        with PDBWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\DBTC_InitialFrame.pdb") as pdb_writer:
             pdb_writer.write(self.universe.atoms)
 
-        self.trajectory_writer = XTCWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\DBTC_trajectories.xtc", self.num_atoms)
+        self.trajectory_writer = XTCWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\DBTC_trajectories.xtc", self.num_atoms)
 
     def step(self, mcs):
         if mcs % 100 == 0:
@@ -111,7 +112,7 @@ class NutrientFieldSteppable(SteppableBasePy):
         self.nutrient_field = self.field.Nutrient
         
         # Create a file to track average nutrient levels
-        self.nutrient_level_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\nutrient_levels.txt", "w")
+        self.nutrient_level_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\nutrient_levels.txt", "w")
         self.nutrient_level_file.write("MCS\tAvgNutrient\n")
         self.nutrient_level_file.flush()
 
@@ -232,7 +233,7 @@ class TCellMitosisSteppable(MitosisSteppableBase):
 
 
     def start(self):
-        self.TC_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\TC_count.txt", "w")
+        self.TC_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\TC_count.txt", "w")
         self.TC_count_file.write("MCS\tNormalTCells\tActivatedTCells\tTotalTCells\n")
 
         self.TC_count_file.flush() 
@@ -287,14 +288,13 @@ class TCellMitosisSteppable(MitosisSteppableBase):
     def finish(self):
         if hasattr(self, 'TC_count_file'):
             self.TC_count_file.close()
-class TCellActivationSteppable(SteppableBasePy):
-    
 
+class TCellActivationSteppable(SteppableBasePy):
     def __init__(self, frequency = 1):
         SteppableBasePy.__init__(self, frequency)
         
     def start(self):
-        self.activation_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\activated_cells.txt", "w")
+        self.activation_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\activated_cells.txt", "w")
         self.activation_count_file.write("MCS\tNormalTCells\tActivatedTCells\n")
         
         # Initialize activation tracking in cell dictionaries
@@ -347,150 +347,3 @@ class TCellActivationSteppable(SteppableBasePy):
     def finish(self):
         if hasattr(self, 'activation_count_file'):
             self.activation_count_file.close()
-            
-            
- 
-class EnergyTrackerSteppable(SteppableBasePy):
-    def __init__(self, frequency=10):
-        SteppableBasePy.__init__(self, frequency)
-        self.output_file = None
-        
-        # Define cell types as constants
-        self.MEDIUM_ID = 0
-        self.TCELL_ID = 1
-        self.DYNABEAD_ID = 2
-        self.ACTIVATEDTCELL_ID = 3
-        
-        # Define contact energy table
-        self.contact_energy_table = {
-            self.MEDIUM_ID: {
-                self.MEDIUM_ID: 0.0,
-                self.TCELL_ID: 20.0,
-                self.DYNABEAD_ID: 20.0,
-                self.ACTIVATEDTCELL_ID: 20.0
-            },
-            self.TCELL_ID: {
-                self.MEDIUM_ID: 20.0,
-                self.TCELL_ID: 30.0,
-                self.DYNABEAD_ID: 15.0,
-                self.ACTIVATEDTCELL_ID: 30.0
-            },
-            self.DYNABEAD_ID: {
-                self.MEDIUM_ID: 20.0,
-                self.TCELL_ID: 15.0,
-                self.DYNABEAD_ID: 100.0,
-                self.ACTIVATEDTCELL_ID: 15.0
-            },
-            self.ACTIVATEDTCELL_ID: {
-                self.MEDIUM_ID: 20.0,
-                self.TCELL_ID: 30.0,
-                self.DYNABEAD_ID: 15.0,
-                self.ACTIVATEDTCELL_ID: 30.0
-            }
-        }
-
-        self.neighbor_order = 4
-        
-    def start(self):
-        # Create and open file for writing energy components
-        self.output_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_2\energy_components.txt", "w")
-        self.output_file.write("MCS\tContactEnergy\tVolumeEnergy\tSurfaceEnergy\tTotalEnergy\n")
-        
-        self.plot_win = self.add_new_plot_window(title="Energy Components", x_axis_title="MCS", y_axis_title="Energy", 
-                                              x_scale_type="linear", y_scale_type="linear", grid=True)
-        
-        self.plot_win.add_plot("Contact Energy", style="Lines", color="red", size=1)
-        self.plot_win.add_plot("Volume Energy", style="Lines", color="blue", size=1)
-        self.plot_win.add_plot("Surface Energy", style="Lines", color="green", size=1)
-        self.plot_win.add_plot("Total Energy", style="Lines", color="orange", size=2)
-        
-    def step(self, mcs):
-        if mcs % self.frequency == 0:
-            contact_energy = self.calculate_contact_energy()
-            volume_energy = self.calculate_volume_energy()
-            surface_energy = self.calculate_surface_energy()
-            total_energy = contact_energy + volume_energy + surface_energy
-            
-            self.output_file.write(f"{mcs}\t{contact_energy}\t{volume_energy}\t{surface_energy}\t{total_energy}\n")
-            
-            self.plot_win.add_data_point("Contact Energy", mcs, contact_energy)
-            self.plot_win.add_data_point("Volume Energy", mcs, volume_energy)
-            self.plot_win.add_data_point("Surface Energy", mcs, surface_energy)
-            self.plot_win.add_data_point("Total Energy", mcs, total_energy)
-            
-            self.output_file.flush()
-            
-            if mcs % 1000 == 0:
-                print(f"MCS: {mcs}, Total Energy: {total_energy}")
-                tcell_count = len(self.cell_list_by_type(self.TCELL))
-                activated_count = len(self.cell_list_by_type(self.ACTIVATEDTCELL))
-                dynabead_count = len(self.cell_list_by_type(self.DYNABEAD))
-                print(f"Cell counts - T cells: {tcell_count}, Activated T cells: {activated_count}, Dynabeads: {dynabead_count}")
-    
-    def calculate_contact_energy(self):
-        '''Calculate contact energy based on cell-cell interfaces'''
-        contact_energy = 0
-        processed_interfaces = set()
-        
-        for cell in self.cell_list:
-            cell_id = cell.id
-            for neighbor, common_surface_area in self.get_cell_neighbor_data_list(cell):
-                if neighbor:
-                    # Create a unique identifier for this cell-cell interface
-                    # Sort IDs to ensure the same interface is identified regardless of order
-                    interface_id = tuple(sorted([cell_id, neighbor.id]))
-                    
-                    # Skip if we've already processed this interface
-                    if interface_id in processed_interfaces:
-                        continue
-                    
-                    processed_interfaces.add(interface_id)
-                    
-                    # Get energy from our table
-                    type1 = cell.type
-                    type2 = neighbor.type
-                    energy = self.contact_energy_table[type1][type2]
-                    contact_energy += energy * common_surface_area
-                else:
-                    # Cell-medium interface
-                    type1 = cell.type
-                    type2 = self.MEDIUM_ID
-                    energy = self.contact_energy_table[type1][type2]
-                    contact_energy += energy * common_surface_area
-        
-        return contact_energy
-        
-    def calculate_volume_energy(self):
-        '''Calculate the volume constraint energy component of the Hamiltonian'''
-        volume_energy = 0.0
-        
-        for cell in self.cell_list:
-            lambda_vol = cell.lambdaVolume
-            target_vol = cell.targetVolume
-            current_vol = cell.volume
-            volume_energy += lambda_vol * (current_vol - target_vol)**2
-                
-        return volume_energy
-        
-    def calculate_surface_energy(self):
-        '''Calculate the surface constraint energy component of the Hamiltonian'''
-        surface_energy = 0.0
-        
-        for cell in self.cell_list:
-            lambda_surf = cell.lambdaSurface
-            target_surf = cell.targetSurface
-            current_surf = cell.surface
-            surface_energy += lambda_surf * (current_surf - target_surf)**2
-                
-        return surface_energy
-        
-    def finish(self):
-        # Close the file when simulation ends
-        if self.output_file:
-            self.output_file.close()
-            print("Energy components data saved to energy_components.txt")
-            
-    def on_stop(self):
-        self.finish()
-   
-
