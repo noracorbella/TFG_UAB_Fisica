@@ -1,0 +1,39 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  C   TCL X   1     174.000 375.000   0.000  1.00  0.00              
+ATOM      2  C   TCL X   1     138.000 395.000   0.000  1.00  0.00              
+ATOM      3  C   TCL X   1      95.000 184.000   0.000  1.00  0.00              
+ATOM      4  C   TCL X   1     285.000 419.000   0.000  1.00  0.00              
+ATOM      5  C   TCL X   1     446.000 130.000   0.000  1.00  0.00              
+ATOM      6  C   TCL X   1     188.000 305.000   0.000  1.00  0.00              
+ATOM      7  C   TCL X   1      41.000 204.000   0.000  1.00  0.00              
+ATOM      8  C   TCL X   1     327.000 369.000   0.000  1.00  0.00              
+ATOM      9  C   TCL X   1     389.000 414.000   0.000  1.00  0.00              
+ATOM     10  C   TCL X   1     316.000  46.000   0.000  1.00  0.00              
+ATOM     11  C   TCL X   1      27.000 354.000   0.000  1.00  0.00              
+ATOM     12  C   TCL X   1     234.000 450.000   0.000  1.00  0.00              
+ATOM     13  C   TCL X   1     265.000 220.000   0.000  1.00  0.00              
+ATOM     14  C   TCL X   1     108.000 274.000   0.000  1.00  0.00              
+ATOM     15  C   TCL X   1     366.000 259.000   0.000  1.00  0.00              
+ATOM     16  H   DYN X   2     328.500 230.500   0.000  1.00  0.00              
+ATOM     17  H   DYN X   2     477.500 328.500   0.000  1.00  0.00              
+ATOM     18  H   DYN X   2     469.500 115.500   0.000  1.00  0.00              
+ATOM     19  H   DYN X   2     396.500 290.500   0.000  1.00  0.00              
+ATOM     20  H   DYN X   2      49.500  78.500   0.000  1.00  0.00              
+ATOM     21  H   DYN X   2       9.500 390.500   0.000  1.00  0.00              
+ATOM     22  H   DYN X   2     288.500 357.500   0.000  1.00  0.00              
+ATOM     23  H   DYN X   2      30.500 164.500   0.000  1.00  0.00              
+ATOM     24  H   DYN X   2     154.500 288.500   0.000  1.00  0.00              
+ATOM     25  H   DYN X   2      42.500 213.500   0.000  1.00  0.00              
+ATOM     26  H   DYN X   2      96.500 434.500   0.000  1.00  0.00              
+ATOM     27  H   DYN X   2      83.500 165.500   0.000  1.00  0.00              
+ATOM     28  H   DYN X   2     478.500 107.500   0.000  1.00  0.00              
+ATOM     29  H   DYN X   2     212.500  99.500   0.000  1.00  0.00              
+ATOM     30  H   DYN X   2     221.500 296.500   0.000  1.00  0.00              
+END
