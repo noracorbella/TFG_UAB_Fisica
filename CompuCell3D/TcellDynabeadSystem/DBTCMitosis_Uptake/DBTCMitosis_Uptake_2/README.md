@@ -1,5 +1,7 @@
 First official simulation on the T cell Dynabead system. Trying to find out what's the best way to save the data for posterior analysis.
+
 The simulation parameters are the following
+
 **NutrientFieldSteppable**	
   base_uptake_rate	0.1
 	activated_uptake_multiplier 	5
