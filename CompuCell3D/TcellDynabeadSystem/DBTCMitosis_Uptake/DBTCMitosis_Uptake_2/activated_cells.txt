@@ -1,3 +1,0 @@
-MCS	NormalTCells	ActivatedTCells
-0	29	1
-100	29	1
