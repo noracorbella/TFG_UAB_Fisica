@@ -22,7 +22,7 @@
 
 **.xml parameters**
 
-        GlobalDiffusionConstant	0.1
+	GlobalDiffusionConstant	0.1
 	GlobalDecayConstant	0.001
 	InitialConcentrationExpression	100
 	Secretion	0.01
