@@ -33,7 +33,7 @@
    <Plugin Name="Contact">
       <Energy Type1="Medium" Type2="Medium">0.0</Energy>
       <Energy Type1="Medium" Type2="TCell">20.0</Energy>
-      <Energy Type1="Medium" Type2="Dynabead">20.0</Energy>
+      <Energy Type1="Medium" Type2="Dynabead">2.0</Energy>
       <Energy Type1="TCell" Type2="TCell">30.0</Energy>
       <Energy Type1="TCell" Type2="Dynabead">15.0</Energy>
       <Energy Type1="Dynabead" Type2="Dynabead">100.0</Energy>
