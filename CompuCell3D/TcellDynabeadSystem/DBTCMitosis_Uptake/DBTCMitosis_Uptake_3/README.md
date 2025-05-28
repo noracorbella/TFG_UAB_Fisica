@@ -1,7 +1,7 @@
 
 **NutrientFieldSteppable**
         
-        base_uptake_rate	0.1
+	base_uptake_rate	0.1
 	activated_uptake_multiplier 	5
 	nutrient_replenishment_rate 	0.01
 	max_nutrient_concentration 	100
@@ -9,7 +9,7 @@
 
 **TcellGrowthSteppable**
 
-        nutrient_consumption_threshold 	0.01	
+	nutrient_consumption_threshold 	0.01	
 	max_growth_nutrients 	0.1
 	activated_growth_multiplier	1.5
 	base_growth_rate 	0.0125
@@ -17,7 +17,7 @@
  
 **TCellMitosisSteppable**
         
-        nutrient_division_threshold 	0.05
+	nutrient_division_threshold 	0.05
 	max_divisions 	10
 
 **.xml parameters**
