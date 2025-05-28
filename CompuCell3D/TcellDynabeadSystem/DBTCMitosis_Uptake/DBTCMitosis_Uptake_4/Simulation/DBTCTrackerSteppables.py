@@ -108,10 +108,10 @@ class TrajectoryTrackerSteppable(SteppableBasePy):
         for atom in activated_atoms:
             atom.residue = residues[2]
 
-        with PDBWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\DBTC_frame0.pdb") as pdb_writer:
+        with PDBWriter(r"DBTC_frame0.pdb") as pdb_writer:
             pdb_writer.write(self.universe.atoms)
 
-        self.trajectory_writer = XTCWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\DBTC_traj.xtc", self.num_atoms)
+        self.trajectory_writer = XTCWriter(r"DBTC_traj.xtc", self.num_atoms)
 
     def step(self, mcs):
         if mcs % 100 == 0:
@@ -135,7 +135,7 @@ class NutrientFieldSteppable(SteppableBasePy):
         self.nutrient_field = self.field.Nutrient
         
         # Create a file to track average nutrient levels
-        self.nutrient_uptake_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\nutrient_uptake_data", "w")
+        self.nutrient_uptake_file = open(r"nutrient_uptake_data.txt", "w")
         self.nutrient_uptake_file.write("MCS\tAvgNutrientConcentration\tAvgUptake\n")
         self.nutrient_uptake_file.flush()
         
@@ -305,7 +305,7 @@ class TCellMitosisSteppable(MitosisSteppableBase):
         self.max_divisions = 10
 
     def start(self):
-        self.TC_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\TC_count.txt", "w")
+        self.TC_count_file = open(r"TC_count.txt", "w")
         self.TC_count_file.write("MCS\tNormalTCells\tActivatedTCells\tTotalTCells\n")
 
         self.TC_count_file.flush() 
@@ -483,11 +483,11 @@ class EnergyTrackerSteppable(SteppableBasePy):
         
     def start(self):
         # Create and open file for writing energy components
-        self.output_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\energy_file.txt", "w")
+        self.output_file = open(r"energy_file.txt", "w")
         self.output_file.write("MCS\tContactEnergy\tVolumeEnergy\tSurfaceEnergy\tTotalEnergy\n")
         
         # Create and open file for writing cell data (volume and pressure)
-        self.data_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake\DBTCMitosis_Uptake_4\cell_data.txt", "w")
+        self.data_file = open(r"cell_data.txt", "w")
         self.data_file.write("MCS\tNormalTCellAvgVolume\tNormalTCellAvgPressure\tActivatedTCellAvgVolume\tActivatedTCellAvgPressure\n")
         
         # Setup plot windows
