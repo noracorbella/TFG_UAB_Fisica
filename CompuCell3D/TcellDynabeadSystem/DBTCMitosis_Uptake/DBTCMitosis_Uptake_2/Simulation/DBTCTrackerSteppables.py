@@ -87,10 +87,10 @@ class TrajectoryTrackerSteppable(SteppableBasePy):
                 atom.type = "C"
                 atom.residue.resname = "ATC"
 
-        with PDBWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\DBTC_InitialFrame.pdb") as pdb_writer:
+        with PDBWriter(r"DBTC_InitialFrame.pdb") as pdb_writer:
             pdb_writer.write(self.universe.atoms)
 
-        self.trajectory_writer = XTCWriter(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\DBTC_trajectories.xtc", self.num_atoms)
+        self.trajectory_writer = XTCWriter(r"DBTC_trajectories.xtc", self.num_atoms)
 
     def step(self, mcs):
         if mcs % 100 == 0:
@@ -112,7 +112,7 @@ class NutrientFieldSteppable(SteppableBasePy):
         self.nutrient_field = self.field.Nutrient
         
         # Create a file to track average nutrient levels
-        self.nutrient_level_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\nutrient_levels.txt", "w")
+        self.nutrient_level_file = open(r"nutrient_levels.txt", "w")
         self.nutrient_level_file.write("MCS\tAvgNutrient\n")
         self.nutrient_level_file.flush()
 
@@ -233,7 +233,7 @@ class TCellMitosisSteppable(MitosisSteppableBase):
 
 
     def start(self):
-        self.TC_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\TC_count.txt", "w")
+        self.TC_count_file = open(r"TC_count.txt", "w")
         self.TC_count_file.write("MCS\tNormalTCells\tActivatedTCells\tTotalTCells\n")
 
         self.TC_count_file.flush() 
@@ -294,7 +294,7 @@ class TCellActivationSteppable(SteppableBasePy):
         SteppableBasePy.__init__(self, frequency)
         
     def start(self):
-        self.activation_count_file = open(r"C:\Users\norac\OneDrive - UAB\Escritorio\uab\5\TFGJordi\ExperimentalData\TcellsDynabeadSystem\DBTCMitosis_Uptake_2\activated_cells.txt", "w")
+        self.activation_count_file = open(r"activated_cells.txt", "w")
         self.activation_count_file.write("MCS\tNormalTCells\tActivatedTCells\n")
         
         # Initialize activation tracking in cell dictionaries
