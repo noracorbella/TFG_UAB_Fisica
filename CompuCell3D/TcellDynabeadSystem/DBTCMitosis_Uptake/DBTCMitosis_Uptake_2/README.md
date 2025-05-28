@@ -2,9 +2,12 @@ First official simulation on the T cell Dynabead system. Trying to find out what
 
 The simulation parameters are the following
 
-**NutrientFieldSteppable**	
-  base_uptake_rate	0.1
+**NutrientFieldSteppable**
+
+  	base_uptake_rate	0.1
+   
 	activated_uptake_multiplier 	5
+ 
 	nutrient_replenishment_rate 	0.06
 	max_nutrient_concentration 	100
 	minimum_nutrient_threshold	0
