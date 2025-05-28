@@ -1,14 +1,29 @@
 
-        self.nutrient_field = None
-        self.base_uptake_rate = 0.1  # Base uptake rate for regular T cells
-        self.activated_uptake_multiplier = 5.0  # Activated T cells consume more nutrients
-        self.nutrient_replenishment_rate = 0.05  # Add nutrient replenishment
-        self.max_nutrient_concentration = 1.0  # Maximum nutrient concentration
-        # Track cell level scalar attribute for visualization
-        self.track_cell_level_scalar_attribute(field_name='uptake', attribute_name='nutrients_consumed')
+**NutrientFieldSteppable**
+        
+        base_uptake_rate	0.1
+	activated_uptake_multiplier 	5
+	nutrient_replenishment_rate 	0.01
+	max_nutrient_concentration 	100
+	minimum_nutrient_threshold	0
 
-        # Nutrient-dependent growth parameters
-        self.nutrient_consumption_threshold = 0.01  # Minimum nutrients needed for growth
-        self.max_growth_nutrients = 0.1  # Nutrients needed for maximum growth rate
-        self.base_growth_rate = 1.0 / 80.0  # Base growth rate (pixels/MCS) - slower than original
-        self.max_growth_rate = 1.0 / 40.0  # Maximum growth rate with optimal nutrients
+**TcellGrowthSteppable**
+
+        nutrient_consumption_threshold 	0.01	
+	max_growth_nutrients 	0.1
+	activated_growth_multiplier	1.5
+	base_growth_rate 	0.0125
+	max_growth_rate 	0.025
+ 
+**TCellMitosisSteppable**
+        
+        nutrient_division_threshold 	0.05
+	max_divisions 	10
+
+**.xml parameters**
+
+        GlobalDiffusionConstant	0.1
+	GlobalDecayConstant	0.001
+	InitialConcentrationExpression	100
+	Secretion	0.01
+
