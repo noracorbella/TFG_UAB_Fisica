@@ -1,0 +1,69 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  C   DYN X   1     426.000 131.000   0.000  1.00  0.00              
+ATOM      2  C   DYN X   1     267.000 449.000   0.000  1.00  0.00              
+ATOM      3  C   DYN X   1      90.000  79.000   0.000  1.00  0.00              
+ATOM      4  C   DYN X   1     422.000 483.000   0.000  1.00  0.00              
+ATOM      5  C   DYN X   1     198.000 321.000   0.000  1.00  0.00              
+ATOM      6  C   DYN X   1     412.000  39.000   0.000  1.00  0.00              
+ATOM      7  C   DYN X   1     269.000  22.000   0.000  1.00  0.00              
+ATOM      8  C   DYN X   1     365.000 435.000   0.000  1.00  0.00              
+ATOM      9  C   DYN X   1     333.000 299.000   0.000  1.00  0.00              
+ATOM     10  C   DYN X   1     151.000 278.000   0.000  1.00  0.00              
+ATOM     11  C   DYN X   1      19.000 126.000   0.000  1.00  0.00              
+ATOM     12  C   DYN X   1     349.000 449.000   0.000  1.00  0.00              
+ATOM     13  C   DYN X   1     405.000 213.000   0.000  1.00  0.00              
+ATOM     14  C   DYN X   1     467.000 223.000   0.000  1.00  0.00              
+ATOM     15  C   DYN X   1      58.000 314.000   0.000  1.00  0.00              
+ATOM     16  C   DYN X   1     380.000 118.000   0.000  1.00  0.00              
+ATOM     17  C   DYN X   1     328.000 145.000   0.000  1.00  0.00              
+ATOM     18  C   DYN X   1     235.000 156.000   0.000  1.00  0.00              
+ATOM     19  C   DYN X   1     252.000 376.000   0.000  1.00  0.00              
+ATOM     20  C   DYN X   1     153.000 367.000   0.000  1.00  0.00              
+ATOM     21  C   DYN X   1     299.000 371.000   0.000  1.00  0.00              
+ATOM     22  C   DYN X   1      21.000 468.000   0.000  1.00  0.00              
+ATOM     23  C   DYN X   1      40.000 289.000   0.000  1.00  0.00              
+ATOM     24  C   DYN X   1     117.000 310.000   0.000  1.00  0.00              
+ATOM     25  C   DYN X   1     171.000 188.000   0.000  1.00  0.00              
+ATOM     26  C   DYN X   1     288.000  33.000   0.000  1.00  0.00              
+ATOM     27  C   DYN X   1     324.000  16.000   0.000  1.00  0.00              
+ATOM     28  C   DYN X   1      68.000 137.000   0.000  1.00  0.00              
+ATOM     29  C   DYN X   1     316.000 392.000   0.000  1.00  0.00              
+ATOM     30  C   DYN X   1     219.000 334.000   0.000  1.00  0.00              
+ATOM     31  H   DYN X   1      32.500 273.500   0.000  1.00  0.00              
+ATOM     32  H   DYN X   1     420.500 426.500   0.000  1.00  0.00              
+ATOM     33  H   DYN X   1      32.500 260.500   0.000  1.00  0.00              
+ATOM     34  H   DYN X   1     288.500 286.500   0.000  1.00  0.00              
+ATOM     35  H   DYN X   1      88.500 491.500   0.000  1.00  0.00              
+ATOM     36  H   DYN X   1     173.500  81.500   0.000  1.00  0.00              
+ATOM     37  H   DYN X   1     266.500 371.500   0.000  1.00  0.00              
+ATOM     38  H   DYN X   1      57.500 353.500   0.000  1.00  0.00              
+ATOM     39  H   DYN X   1     473.500 484.500   0.000  1.00  0.00              
+ATOM     40  H   DYN X   1     435.500 129.500   0.000  1.00  0.00              
+ATOM     41  H   DYN X   1     219.500 479.500   0.000  1.00  0.00              
+ATOM     42  H   DYN X   1     225.500  40.500   0.000  1.00  0.00              
+ATOM     43  H   DYN X   1      64.500 412.500   0.000  1.00  0.00              
+ATOM     44  H   DYN X   1      93.500 370.500   0.000  1.00  0.00              
+ATOM     45  H   DYN X   1     448.500 257.500   0.000  1.00  0.00              
+ATOM     46  H   DYN X   1     417.500 233.500   0.000  1.00  0.00              
+ATOM     47  H   DYN X   1     296.500 232.500   0.000  1.00  0.00              
+ATOM     48  H   DYN X   1      38.500 221.500   0.000  1.00  0.00              
+ATOM     49  H   DYN X   1     352.500 240.500   0.000  1.00  0.00              
+ATOM     50  H   DYN X   1     180.500 489.500   0.000  1.00  0.00              
+ATOM     51  H   DYN X   1     162.500 141.500   0.000  1.00  0.00              
+ATOM     52  H   DYN X   1     366.500 455.500   0.000  1.00  0.00              
+ATOM     53  H   DYN X   1     475.500  29.500   0.000  1.00  0.00              
+ATOM     54  H   DYN X   1     102.500  28.500   0.000  1.00  0.00              
+ATOM     55  H   DYN X   1     404.500 355.500   0.000  1.00  0.00              
+ATOM     56  H   DYN X   1      73.500 386.500   0.000  1.00  0.00              
+ATOM     57  H   DYN X   1     181.500 354.500   0.000  1.00  0.00              
+ATOM     58  H   DYN X   1     392.500 470.500   0.000  1.00  0.00              
+ATOM     59  H   DYN X   1     348.500 482.500   0.000  1.00  0.00              
+ATOM     60  H   DYN X   1     484.500 309.500   0.000  1.00  0.00              
+END
