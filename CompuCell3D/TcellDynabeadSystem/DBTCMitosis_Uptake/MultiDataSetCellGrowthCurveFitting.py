@@ -13,67 +13,39 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
-# Define your datasets here - add file paths and labels
-
 datasets = [
     {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_3_bis/TC_count.txt",
+        'file': r"TC_count_4.txt",
         'label': 'Simulation 4',
         'color': 'tab:blue',
         'line_style': '-'
     },
     {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_17/TC_count.txt",
+        'file': r"TC_count_5.txt",
         'label': 'Simulation 5',
         'color': 'tab:orange',
         'line_style': '-'
     },
     {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_18/TC_count.txt",
+        'file': r"TC_count_6.txt",
         'label': 'Simulation 6',
         'color': 'tab:green',
         'line_style': '-'
     },
     {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_19/TC_count.txt",
+        'file': r"TC_count_7.txt",        
         'label': 'Simulation 7',
         'color': 'tab:red',
         'line_style': '-'
     }]
 
-datasets_no = [
-    {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_20/TC_count.txt",
-        'label': 'Simulation 8',
-        'color': 'tab:purple',
-        'line_style': '-'
-    },
-    {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_21/TC_count.txt",
-        'label': 'Simulation 9',
-        'color': 'tab:brown',
-        'line_style': '-'
-    },
-    {
-        'file': r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/DBTCMitosis_Uptake_22/TC_count.txt",
-        'label': 'Simulation 10',
-        'color': 'tab:cyan',
-        'line_style': '-'
-    }
+# Output plot
+output_png = r"/TC_count_plot_4_5_6_7_combined.png"
 
-]
-
-# Output file for the combined plot
-output_png = r"/mnt/c/Users/norac/OneDrive - UAB/Escritorio/uab/5/TFGJordi/ExperimentalData/TcellsDynabeadSystem/DBTCMitosis_Uptake/TC_count_plot_4_5_6_7_combined.png"
-
-# Growth model functions
+# Growth Functions
 def sigmoid(x, a, b, c, d):
     """Modified sigmoid with baseline offset"""
     return d + (a - d) / (1 + np.exp(-b * (x - c)))
-
-def gompertz(x, a, b, c, d):
-    """Gompertz growth model - better for biological growth"""
-    return d + a * np.exp(-b * np.exp(-c * x))
 
 def exponential_saturation(x, a, b, c):
     """Exponential approach to saturation"""
@@ -84,7 +56,6 @@ def logistic_growth(x, K, r, t0, N0):
     return K / (1 + ((K - N0) / N0) * np.exp(-r * (x - t0)))
 
 def load_and_process_data(file_path, crop_length=110000):
-    """Load and process cell count data from file"""
     MCS, cell_count_lst = [], []
     
     try:
@@ -139,11 +110,6 @@ def fit_best_model(MCS_cropped, Cell_Count_cropped):
             'p0': [y_max - y_min, 1e-5, inflection_x, y_min],
             'bounds': ([0, 1e-8, x_min, 0], [2*(y_max-y_min), 1e-3, x_max, y_max])
         },
-        'Gompertz': {
-            'func': gompertz,
-            'p0': [y_max - y_min, 1.0, 1e-5, y_min],
-            'bounds': ([0, 0.1, 1e-8, 0], [2*(y_max-y_min), 10, 1e-3, y_max])
-        },
         'Exponential Saturation': {
             'func': exponential_saturation,
             'p0': [y_max - y_min, 1e-5, y_min],
@@ -187,44 +153,19 @@ def fit_best_model(MCS_cropped, Cell_Count_cropped):
                 best_name = name
                 
         except Exception as e:
-            # Try without bounds if bounded fit fails
-            try:
-                if name != 'Logistic Growth':  # Logistic growth needs bounds
-                    popt, pcov = curve_fit(
-                        model_info['func'], 
-                        MCS_cropped, 
-                        Cell_Count_cropped, 
-                        p0=model_info['p0'],
-                        maxfev=15000,
-                        method='lm'
-                    )
-                    
-                    y_pred = model_info['func'](MCS_cropped, *popt)
-                    ss_res = np.sum((Cell_Count_cropped - y_pred) ** 2)
-                    ss_tot = np.sum((Cell_Count_cropped - np.mean(Cell_Count_cropped)) ** 2)
-                    r2 = 1 - (ss_res / ss_tot)
-                    
-                    if r2 > best_r2:
-                        best_r2 = r2
-                        best_model = model_info['func']
-                        best_params = popt
-                        best_name = name + " (unbounded)"
-            except:
-                continue
+            print(f"{name} failed: {e}")
+            continue
     
     return best_model, best_params, best_r2, best_name
 
-# Main processing and plotting
 plt.figure(figsize=(10, 6))
 
 results = []
 valid_datasets = []
 
-# Process each dataset
 for i, dataset in enumerate(datasets):
     print(f"\nProcessing {dataset['label']}...")
     
-    # Load data
     MCS_cropped, Cell_Count_cropped = load_and_process_data(dataset['file'])
     
     if MCS_cropped is None or Cell_Count_cropped is None:
@@ -239,7 +180,6 @@ for i, dataset in enumerate(datasets):
         print(f"Best model: {best_name}")
         print(f"R² = {best_r2:.4f}")
         
-        # Store results
         results.append({
             'MCS': MCS_cropped,
             'Cell_Count': Cell_Count_cropped,
@@ -255,26 +195,25 @@ for i, dataset in enumerate(datasets):
         x_smooth = np.linspace(np.min(MCS_cropped), np.max(MCS_cropped), 1000)
         y_smooth = best_model(x_smooth, *best_params)
         
-        # Plot original data
+        # Priginal data
         plt.plot(MCS_cropped, Cell_Count_cropped, 
                 color=dataset['color'], linestyle='--', 
                 alpha=0.7, linewidth=1.5, 
                 label=f'{dataset["label"]}')
         
-        # Plot fitted curve
+        # Fitted curve
         plt.plot(x_smooth, y_smooth, 
                 color=dataset['color'], linestyle='-', 
                 linewidth=2, alpha=0.9,
                 label=f'Sigmoid Fit (R²={best_r2:.3f})')
     else:
         print(f"No suitable model found for {dataset['label']}")
-        # Still plot the data
+        # Plot the data
         plt.plot(MCS_cropped, Cell_Count_cropped, 
                 color=dataset['color'], linestyle=dataset['line_style'], 
                 alpha=0.7, linewidth=1.5, 
                 label=f'{dataset["label"]} (No Fit)')
 
-# Finalize plot
 plt.xlabel('MCS', fontsize=14)
 plt.ylabel('Cell Count', fontsize=14)
 plt.legend(loc='upper left', fontsize=12)
@@ -286,7 +225,7 @@ plt.tight_layout()
 plt.savefig(output_png, format='png', dpi=300, bbox_inches='tight')
 plt.show()
 
-# Print summary of results
+# Print results
 print(f"\n{'='*60}")
 print("SUMMARY OF RESULTS")
 print(f"{'='*60}")
@@ -297,15 +236,7 @@ for i, result in enumerate(results):
     print(f"  R²: {result['r2']:.4f}")
     print(f"  Parameters: {result['params']}")
     
-    # Print biological interpretation for relevant models
-    if 'Gompertz' in result['name']:
-        carrying_capacity = result['params'][0] + result['params'][3]
-        initial_pop = result['params'][3]
-        print(f"  Carrying capacity ≈ {carrying_capacity:.2f}")
-        print(f"  Initial population ≈ {initial_pop:.2f}")
-    elif 'Logistic' in result['name']:
+    if 'Logistic' in result['name']:
         print(f"  Carrying capacity (K) = {result['params'][0]:.2f}")
         print(f"  Growth rate (r) = {result['params'][1]:.2e}")
         print(f"  Initial population (N0) = {result['params'][3]:.2f}")
-
-print(f"\nPlot saved as: {output_png}")
