@@ -1,5 +1,0 @@
-<Simulation version="4.6.0">
-   <XMLScript Type="XMLScript">Simulation/DBTCTracker.xml</XMLScript>
-   <PythonScript Type="PythonScript">Simulation/DBTCTracker.py</PythonScript>
-   <Resource Type="Python">Simulation/DBTCTrackerSteppables.py</Resource>
-</Simulation>
