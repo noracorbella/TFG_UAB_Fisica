@@ -1,5 +1,0 @@
-<Simulation version="4.6.0">
-   <XMLScript Type="XMLScript">Simulation/TcellsDynabeadSystem_DiffusionTracker.xml</XMLScript>
-   <PythonScript Type="PythonScript">Simulation/TcellsDynabeadSystem_DiffusionTracker.py</PythonScript>
-   <Resource Type="Python">Simulation/TcellsDynabeadSystem_DiffusionTrackerSteppables.py</Resource>
-</Simulation>
