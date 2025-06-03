@@ -16,7 +16,7 @@ This repository contains the parameter exploration results for T cell Dynabead s
   
 
 ### Simulation 1
-'''
+
 base_uptake_rate	=	0.01
 activated_uptake_multiplier 	=	1
 nutrient_replenishment_rate 	=	0
@@ -29,7 +29,7 @@ base_growth_rate 	=	0.01
 max_growth_rate 	=	0.05
 nutrient_division_threshold 	=	0
 max_divisions 	=	5
-'''
+
 
 ### Simulation 2
 https://youtube.com/shorts/gBUieFc5U9k?feature=share
