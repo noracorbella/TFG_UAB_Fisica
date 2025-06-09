@@ -1,2 +1,0 @@
-Start Index 	 End Index 	 rsquared 
-0 	 1000 	 0.9623
