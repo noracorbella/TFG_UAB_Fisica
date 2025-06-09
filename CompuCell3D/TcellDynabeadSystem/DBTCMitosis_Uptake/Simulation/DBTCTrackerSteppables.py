@@ -22,7 +22,7 @@ class CellInitialiser(SteppableBasePy):
             self.cell_field[x:x + Tcell_size, y:y + Tcell_size, 0] = cell
             cell.targetVolume = np.pi * (Tcell_size/2) ** 2 
             cell.lambdaVolume = 5.0
-            cell.targetSurface = 2 * np.pi * np.sqrt(cell.targetVolume)
+            cell.targetSurface = 2 * np.sqrt(cell.targetVolume * np.pi)
             cell.lambdaSurface = 5.0
 
         for _ in range(Nd):
@@ -31,7 +31,7 @@ class CellInitialiser(SteppableBasePy):
             self.cell_field[x:x + Dynabead_size, y:y + Dynabead_size, 0] = cell
             cell.targetVolume = np.pi * (Dynabead_size/2) ** 2 
             cell.lambdaVolume = 5.0
-            cell.targetSurface = 2 * np.pi * np.sqrt(cell.targetVolume)
+            cell.targetSurface = 2 * np.sqrt(cell.targetVolume * np.pi)
             cell.lambdaSurface = 5.0
         
         
